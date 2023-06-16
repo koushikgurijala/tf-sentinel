@@ -1,0 +1,1323 @@
+terraform_version = "1.3.2"
+
+resource_changes = {
+	"module.docker_registry.module.gar.google_artifact_registry_repository.docker": {
+		"address": "module.docker_registry.module.gar.google_artifact_registry_repository.docker",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"create_time":               "2023-05-11T20:15:36.085016Z",
+				"description":               "Docker registry headlands-1245",
+				"docker_config":             [],
+				"format":                    "DOCKER",
+				"id":                        "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"kms_key_name":              "",
+				"labels":                    {},
+				"location":                  "us-central1",
+				"maven_config":              [],
+				"mode":                      "STANDARD_REPOSITORY",
+				"name":                      "headlands-1245",
+				"project":                   "prj-e-gcp-headlands-50e8",
+				"remote_repository_config":  [],
+				"repository_id":             "headlands-1245",
+				"timeouts":                  null,
+				"update_time":               "2023-05-11T20:15:36.085016Z",
+				"virtual_repository_config": [],
+			},
+			"after_unknown": {},
+			"before": {
+				"create_time":               "2023-05-11T20:15:36.085016Z",
+				"description":               "Docker registry headlands-1245",
+				"docker_config":             [],
+				"format":                    "DOCKER",
+				"id":                        "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"kms_key_name":              "",
+				"labels":                    {},
+				"location":                  "us-central1",
+				"maven_config":              [],
+				"mode":                      "STANDARD_REPOSITORY",
+				"name":                      "headlands-1245",
+				"project":                   "prj-e-gcp-headlands-50e8",
+				"remote_repository_config":  [],
+				"repository_id":             "headlands-1245",
+				"timeouts":                  null,
+				"update_time":               "2023-05-11T20:15:36.085016Z",
+				"virtual_repository_config": [],
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "docker",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_artifact_registry_repository",
+	},
+	"module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.readers[\"group:AD_GCP_READ_ONLY@dev-td.com\"]": {
+		"address": "module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.readers[\"group:AD_GCP_READ_ONLY@dev-td.com\"]",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.reader/group:ad_gcp_read_only@dev-td.com",
+				"location":   "us-central1",
+				"member":     "group:AD_GCP_READ_ONLY@dev-td.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.reader",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.reader/group:ad_gcp_read_only@dev-td.com",
+				"location":   "us-central1",
+				"member":     "group:AD_GCP_READ_ONLY@dev-td.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.reader",
+			},
+		},
+		"deposed":        "",
+		"index":          "group:AD_GCP_READ_ONLY@dev-td.com",
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "readers",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_artifact_registry_repository_iam_member",
+	},
+	"module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.readers[\"serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com\"]": {
+		"address": "module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.readers[\"serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com\"]",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.reader/serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"location":   "us-central1",
+				"member":     "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.reader",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.reader/serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"location":   "us-central1",
+				"member":     "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.reader",
+			},
+		},
+		"deposed":        "",
+		"index":          "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "readers",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_artifact_registry_repository_iam_member",
+	},
+	"module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.writers[\"group:AZ_PIM_GCP_Platform_Admin@dev-td.com\"]": {
+		"address": "module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.writers[\"group:AZ_PIM_GCP_Platform_Admin@dev-td.com\"]",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.writer/group:az_pim_gcp_platform_admin@dev-td.com",
+				"location":   "us-central1",
+				"member":     "group:AZ_PIM_GCP_Platform_Admin@dev-td.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.writer",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.writer/group:az_pim_gcp_platform_admin@dev-td.com",
+				"location":   "us-central1",
+				"member":     "group:AZ_PIM_GCP_Platform_Admin@dev-td.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.writer",
+			},
+		},
+		"deposed":        "",
+		"index":          "group:AZ_PIM_GCP_Platform_Admin@dev-td.com",
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "writers",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_artifact_registry_repository_iam_member",
+	},
+	"module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.writers[\"serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com\"]": {
+		"address": "module.docker_registry.module.gar.google_artifact_registry_repository_iam_member.writers[\"serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com\"]",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.writer/serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"location":   "us-central1",
+				"member":     "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.writer",
+			},
+			"after_unknown": {},
+			"before": {
+				"condition":  [],
+				"etag":       "BwX7cYTuVX4=",
+				"id":         "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245/roles/artifactregistry.writer/serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"location":   "us-central1",
+				"member":     "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+				"project":    "prj-e-gcp-headlands-50e8",
+				"repository": "projects/prj-e-gcp-headlands-50e8/locations/us-central1/repositories/headlands-1245",
+				"role":       "roles/artifactregistry.writer",
+			},
+		},
+		"deposed":        "",
+		"index":          "serviceAccount:sa-e-gcp-headlands-app@prj-e-gcp-headlands-50e8.iam.gserviceaccount.com",
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "writers",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_artifact_registry_repository_iam_member",
+	},
+	"module.docker_registry.module.gar.random_id.suffix": {
+		"address": "module.docker_registry.module.gar.random_id.suffix",
+		"change": {
+			"actions": [
+				"no-op",
+			],
+			"after": {
+				"b64_std":     "EkU=",
+				"b64_url":     "EkU",
+				"byte_length": 2,
+				"dec":         "4677",
+				"hex":         "1245",
+				"id":          "EkU",
+				"keepers":     null,
+				"prefix":      null,
+			},
+			"after_unknown": {},
+			"before": {
+				"b64_std":     "EkU=",
+				"b64_url":     "EkU",
+				"byte_length": 2,
+				"dec":         "4677",
+				"hex":         "1245",
+				"id":          "EkU",
+				"keepers":     null,
+				"prefix":      null,
+			},
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.docker_registry.module.gar",
+		"name":           "suffix",
+		"provider_name":  "registry.terraform.io/hashicorp/random",
+		"type":           "random_id",
+	},
+	"module.gke-sentinel-fail.module.core-gke.google_compute_network_peering_routes_config.peering_gke_routes": {
+		"address": "module.gke-sentinel-fail.module.core-gke.google_compute_network_peering_routes_config.peering_gke_routes",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"export_custom_routes": true,
+				"import_custom_routes": false,
+				"network":              "vpc-e-shared-restricted",
+				"project":              "prj-e-gcp-svpc-restricted-61d3",
+				"timeouts":             null,
+			},
+			"after_unknown": {
+				"id":      true,
+				"peering": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke",
+		"name":           "peering_gke_routes",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_compute_network_peering_routes_config",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.google_compute_firewall.intra_egress[0]": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.google_compute_firewall.intra_egress[0]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"allow": [
+					{
+						"ports":    [],
+						"protocol": "ah",
+					},
+					{
+						"ports":    [],
+						"protocol": "esp",
+					},
+					{
+						"ports":    [],
+						"protocol": "icmp",
+					},
+					{
+						"ports":    [],
+						"protocol": "sctp",
+					},
+					{
+						"ports":    [],
+						"protocol": "tcp",
+					},
+					{
+						"ports":    [],
+						"protocol": "udp",
+					},
+				],
+				"deny":        [],
+				"description": "Managed by terraform gke module: Allow pods to communicate with each other and the master",
+				"destination_ranges": [
+					"10.239.0.128/28",
+					"100.64.0.0/16",
+					"100.70.0.0/16",
+				],
+				"direction":               "EGRESS",
+				"disabled":                null,
+				"log_config":              [],
+				"name":                    "gke-gke-e-gcp-sentinel-01-intra-cluster-egress",
+				"network":                 "vpc-e-shared-restricted",
+				"priority":                1000,
+				"project":                 "prj-e-gcp-svpc-restricted-61d3",
+				"source_ranges":           null,
+				"source_service_accounts": null,
+				"source_tags":             null,
+				"target_service_accounts": null,
+				"target_tags": [
+					"gke-gke-e-gcp-sentinel-01",
+				],
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"allow": [
+					{
+						"ports": [],
+					},
+					{
+						"ports": [],
+					},
+					{
+						"ports": [],
+					},
+					{
+						"ports": [],
+					},
+					{
+						"ports": [],
+					},
+					{
+						"ports": [],
+					},
+				],
+				"creation_timestamp": true,
+				"deny":               [],
+				"destination_ranges": [
+					false,
+					false,
+					false,
+				],
+				"enable_logging": true,
+				"id":             true,
+				"log_config":     [],
+				"self_link":      true,
+				"target_tags": [
+					false,
+				],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          0,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "intra_egress",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_compute_firewall",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.google_compute_firewall.master_webhooks[0]": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.google_compute_firewall.master_webhooks[0]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"allow": [
+					{
+						"ports": [
+							"8443",
+							"9443",
+							"15017",
+						],
+						"protocol": "tcp",
+					},
+				],
+				"deny":        [],
+				"description": "Managed by terraform gke module: Allow master to hit pods for admission controllers/webhooks",
+				"direction":   "INGRESS",
+				"disabled":    null,
+				"log_config":  [],
+				"name":        "gke-gke-e-gcp-sentinel-01-webhooks",
+				"network":     "vpc-e-shared-restricted",
+				"priority":    1000,
+				"project":     "prj-e-gcp-svpc-restricted-61d3",
+				"source_ranges": [
+					"10.239.0.128/28",
+				],
+				"source_service_accounts": null,
+				"source_tags":             null,
+				"target_service_accounts": null,
+				"target_tags": [
+					"gke-gke-e-gcp-sentinel-01",
+				],
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"allow": [
+					{
+						"ports": [
+							false,
+							false,
+							false,
+						],
+					},
+				],
+				"creation_timestamp": true,
+				"deny":               [],
+				"destination_ranges": true,
+				"enable_logging":     true,
+				"id":                 true,
+				"log_config":         [],
+				"self_link":          true,
+				"source_ranges": [
+					false,
+				],
+				"target_tags": [
+					false,
+				],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          0,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "master_webhooks",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_compute_firewall",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.google_container_cluster.primary": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.google_container_cluster.primary",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"addons_config": [
+					{
+						"dns_cache_config": [
+							{
+								"enabled": false,
+							},
+						],
+						"gce_persistent_disk_csi_driver_config": [
+							{
+								"enabled": true,
+							},
+						],
+						"gcp_filestore_csi_driver_config": [
+							{
+								"enabled": false,
+							},
+						],
+						"gke_backup_agent_config": [
+							{
+								"enabled": false,
+							},
+						],
+						"horizontal_pod_autoscaling": [
+							{
+								"disabled": false,
+							},
+						],
+						"http_load_balancing": [
+							{
+								"disabled": false,
+							},
+						],
+						"network_policy_config": [
+							{
+								"disabled": true,
+							},
+						],
+					},
+				],
+				"binary_authorization": [],
+				"cluster_autoscaling": [
+					{
+						"enabled":         false,
+						"resource_limits": [],
+					},
+				],
+				"database_encryption": [
+					{
+						"key_name": "",
+						"state":    "DECRYPTED",
+					},
+				],
+				"default_max_pods_per_node": 110,
+				"default_snat_status": [
+					{
+						"disabled": false,
+					},
+				],
+				"description":                 "",
+				"dns_config":                  [],
+				"enable_autopilot":            null,
+				"enable_binary_authorization": false,
+				"enable_kubernetes_alpha":     false,
+				"enable_l4_ilb_subsetting":    false,
+				"enable_legacy_abac":          false,
+				"enable_shielded_nodes":       true,
+				"enable_tpu":                  null,
+				"initial_node_count":          null,
+				"ip_allocation_policy": [
+					{
+						"cluster_secondary_range_name":  "headlands-services",
+						"services_secondary_range_name": "headlands-pods",
+						"stack_type":                    "IPV4",
+					},
+				],
+				"location":        "us-central1",
+				"logging_service": "logging.googleapis.com/kubernetes",
+				"maintenance_policy": [
+					{
+						"daily_maintenance_window": [
+							{
+								"start_time": "05:00",
+							},
+						],
+						"maintenance_exclusion": [],
+						"recurring_window":      [],
+					},
+				],
+				"master_auth": [
+					{
+						"client_certificate_config": [
+							{
+								"issue_client_certificate": false,
+							},
+						],
+					},
+				],
+				"master_authorized_networks_config": [
+					{
+						"cidr_blocks": [
+							{
+								"cidr_block":   "10.0.0.0/8",
+								"display_name": "td-internal",
+							},
+						],
+					},
+				],
+				"min_master_version": null,
+				"monitoring_service": "monitoring.googleapis.com/kubernetes",
+				"name":               "gke-e-gcp-sentinel-01",
+				"network":            "projects/prj-e-gcp-svpc-restricted-61d3/global/networks/vpc-e-shared-restricted",
+				"network_policy": [
+					{
+						"enabled":  false,
+						"provider": null,
+					},
+				],
+				"node_pool": [
+					{
+						"autoscaling":        [],
+						"initial_node_count": 0,
+						"name":               "default-pool",
+						"node_config": [
+							{
+								"advanced_machine_features":          [],
+								"boot_disk_kms_key":                  null,
+								"ephemeral_storage_local_ssd_config": [],
+								"gcfs_config":                        [],
+								"gvnic":                              [],
+								"image_type":                         "COS_CONTAINERD",
+								"kubelet_config":                     [],
+								"linux_node_config":                  [],
+								"local_nvme_ssd_block_config":        [],
+								"logging_variant":                    "DEFAULT",
+								"machine_type":                       "e2-medium",
+								"node_group":                         null,
+								"preemptible":                        false,
+								"reservation_affinity":               [],
+								"resource_labels":                    null,
+								"shielded_instance_config": [
+									{
+										"enable_integrity_monitoring": false,
+										"enable_secure_boot":          false,
+									},
+								],
+								"spot": false,
+								"tags": [
+									"gke-gke-e-gcp-sentinel-01",
+									"gke-gke-e-gcp-sentinel-01-default-pool",
+								],
+								"workload_metadata_config": [
+									{
+										"mode": "GKE_METADATA",
+									},
+								],
+							},
+						],
+						"placement_policy": [],
+					},
+				],
+				"notification_config": [
+					{
+						"pubsub": [
+							{
+								"enabled": false,
+								"filter":  [],
+								"topic":   "",
+							},
+						],
+					},
+				],
+				"private_cluster_config": [
+					{
+						"enable_private_endpoint": true,
+						"enable_private_nodes":    true,
+						"master_global_access_config": [
+							{
+								"enabled": true,
+							},
+						],
+						"master_ipv4_cidr_block":      "10.239.0.128/28",
+						"private_endpoint_subnetwork": null,
+					},
+				],
+				"project": "prj-e-gcp-headlands-50e8",
+				"release_channel": [
+					{
+						"channel": "REGULAR",
+					},
+				],
+				"remove_default_node_pool":     true,
+				"resource_labels":              null,
+				"resource_usage_export_config": [],
+				"subnetwork":                   "projects/prj-e-gcp-svpc-restricted-61d3/regions/us-central1/subnetworks/sb-e-shared-restricted-headlands-us-central1",
+				"timeouts": {
+					"create": "45m",
+					"delete": "45m",
+					"read":   null,
+					"update": "45m",
+				},
+				"vertical_pod_autoscaling": [
+					{
+						"enabled": false,
+					},
+				],
+				"workload_identity_config": [
+					{
+						"workload_pool": "prj-e-gcp-headlands-50e8.svc.id.goog",
+					},
+				],
+			},
+			"after_unknown": {
+				"addons_config": [
+					{
+						"cloudrun_config":         true,
+						"config_connector_config": true,
+						"dns_cache_config": [
+							{},
+						],
+						"gce_persistent_disk_csi_driver_config": [
+							{},
+						],
+						"gcp_filestore_csi_driver_config": [
+							{},
+						],
+						"gke_backup_agent_config": [
+							{},
+						],
+						"horizontal_pod_autoscaling": [
+							{},
+						],
+						"http_load_balancing": [
+							{},
+						],
+						"network_policy_config": [
+							{},
+						],
+					},
+				],
+				"authenticator_groups_config": true,
+				"binary_authorization":        [],
+				"cluster_autoscaling": [
+					{
+						"auto_provisioning_defaults": true,
+						"resource_limits":            [],
+					},
+				],
+				"cluster_ipv4_cidr":      true,
+				"confidential_nodes":     true,
+				"cost_management_config": true,
+				"database_encryption": [
+					{},
+				],
+				"datapath_provider": true,
+				"default_snat_status": [
+					{},
+				],
+				"dns_config":                  [],
+				"enable_intranode_visibility": true,
+				"endpoint":                    true,
+				"gateway_api_config":          true,
+				"id":                          true,
+				"ip_allocation_policy": [
+					{
+						"cluster_ipv4_cidr_block":       true,
+						"pod_cidr_overprovision_config": true,
+						"services_ipv4_cidr_block":      true,
+					},
+				],
+				"label_fingerprint": true,
+				"logging_config":    true,
+				"maintenance_policy": [
+					{
+						"daily_maintenance_window": [
+							{
+								"duration": true,
+							},
+						],
+						"maintenance_exclusion": [],
+						"recurring_window":      [],
+					},
+				],
+				"master_auth": [
+					{
+						"client_certificate": true,
+						"client_certificate_config": [
+							{},
+						],
+						"client_key":             true,
+						"cluster_ca_certificate": true,
+					},
+				],
+				"master_authorized_networks_config": [
+					{
+						"cidr_blocks": [
+							{},
+						],
+						"gcp_public_cidrs_access_enabled": true,
+					},
+				],
+				"master_version":    true,
+				"mesh_certificates": true,
+				"monitoring_config": true,
+				"network_policy": [
+					{},
+				],
+				"networking_mode": true,
+				"node_config":     true,
+				"node_locations":  true,
+				"node_pool": [
+					{
+						"autoscaling":                 [],
+						"instance_group_urls":         true,
+						"managed_instance_group_urls": true,
+						"management":                  true,
+						"max_pods_per_node":           true,
+						"name_prefix":                 true,
+						"network_config":              true,
+						"node_config": [
+							{
+								"advanced_machine_features":          [],
+								"disk_size_gb":                       true,
+								"disk_type":                          true,
+								"ephemeral_storage_local_ssd_config": [],
+								"gcfs_config":                        [],
+								"guest_accelerator":                  true,
+								"gvnic":                              [],
+								"kubelet_config":                     [],
+								"labels":                             true,
+								"linux_node_config":                  [],
+								"local_nvme_ssd_block_config":        [],
+								"local_ssd_count":                    true,
+								"metadata":                           true,
+								"min_cpu_platform":                   true,
+								"oauth_scopes":                       true,
+								"reservation_affinity":               [],
+								"service_account":                    true,
+								"shielded_instance_config": [
+									{},
+								],
+								"tags": [
+									false,
+									false,
+								],
+								"taint": true,
+								"workload_metadata_config": [
+									{},
+								],
+							},
+						],
+						"node_count":       true,
+						"node_locations":   true,
+						"placement_policy": [],
+						"upgrade_settings": true,
+						"version":          true,
+					},
+				],
+				"node_pool_defaults": true,
+				"node_version":       true,
+				"notification_config": [
+					{
+						"pubsub": [
+							{
+								"filter": [],
+							},
+						],
+					},
+				],
+				"operation": true,
+				"private_cluster_config": [
+					{
+						"master_global_access_config": [
+							{},
+						],
+						"peering_name":     true,
+						"private_endpoint": true,
+						"public_endpoint":  true,
+					},
+				],
+				"private_ipv6_google_access": true,
+				"release_channel": [
+					{},
+				],
+				"resource_usage_export_config": [],
+				"self_link":                    true,
+				"service_external_ips_config":  true,
+				"services_ipv4_cidr":           true,
+				"timeouts":                     {},
+				"tpu_ipv4_cidr_block":          true,
+				"vertical_pod_autoscaling": [
+					{},
+				],
+				"workload_identity_config": [
+					{},
+				],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "primary",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_container_cluster",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.google_container_node_pool.pools[\"default-node-pool\"]": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.google_container_node_pool.pools[\"default-node-pool\"]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"autoscaling": [
+					{
+						"max_node_count":       10,
+						"min_node_count":       0,
+						"total_max_node_count": null,
+						"total_min_node_count": null,
+					},
+				],
+				"cluster":            "gke-e-gcp-sentinel-01",
+				"initial_node_count": 0,
+				"location":           "us-central1",
+				"management": [
+					{
+						"auto_repair":  true,
+						"auto_upgrade": false,
+					},
+				],
+				"name": "default-node-pool",
+				"node_config": [
+					{
+						"advanced_machine_features":          [],
+						"boot_disk_kms_key":                  "",
+						"disk_size_gb":                       100,
+						"disk_type":                          "pd-standard",
+						"ephemeral_storage_local_ssd_config": [],
+						"gcfs_config":                        [],
+						"gvnic":                              [],
+						"image_type":                         "COS_CONTAINERD",
+						"kubelet_config":                     [],
+						"labels": {
+							"cluster_name": "gke-e-gcp-sentinel-01",
+							"node_pool":    "default-node-pool",
+						},
+						"linux_node_config":           [],
+						"local_nvme_ssd_block_config": [],
+						"local_ssd_count":             0,
+						"logging_variant":             "DEFAULT",
+						"machine_type":                "e2-medium",
+						"metadata": {
+							"cluster_name":             "gke-e-gcp-sentinel-01",
+							"disable-legacy-endpoints": "true",
+							"node_pool":                "default-node-pool",
+						},
+						"node_group": null,
+						"oauth_scopes": [
+							"https://www.googleapis.com/auth/cloud-platform",
+						],
+						"preemptible":          false,
+						"reservation_affinity": [],
+						"resource_labels":      null,
+						"shielded_instance_config": [
+							{
+								"enable_integrity_monitoring": false,
+								"enable_secure_boot":          false,
+							},
+						],
+						"spot": false,
+						"tags": [
+							"gke-gke-e-gcp-sentinel-01",
+							"gke-gke-e-gcp-sentinel-01-default-node-pool",
+						],
+						"workload_metadata_config": [
+							{
+								"mode": "GKE_METADATA",
+							},
+						],
+					},
+				],
+				"placement_policy": [],
+				"project":          "prj-e-gcp-headlands-50e8",
+				"timeouts": {
+					"create": "45m",
+					"delete": "45m",
+					"update": "45m",
+				},
+				"upgrade_settings": [
+					{
+						"max_surge":       1,
+						"max_unavailable": 0,
+						"strategy":        "SURGE",
+					},
+				],
+			},
+			"after_unknown": {
+				"autoscaling": [
+					{
+						"location_policy": true,
+					},
+				],
+				"id": true,
+				"instance_group_urls":         true,
+				"managed_instance_group_urls": true,
+				"management": [
+					{},
+				],
+				"max_pods_per_node": true,
+				"name_prefix":       true,
+				"network_config":    true,
+				"node_config": [
+					{
+						"advanced_machine_features":          [],
+						"ephemeral_storage_local_ssd_config": [],
+						"gcfs_config":                        [],
+						"guest_accelerator":                  true,
+						"gvnic":                              [],
+						"kubelet_config":                     [],
+						"labels":                             {},
+						"linux_node_config":                  [],
+						"local_nvme_ssd_block_config":        [],
+						"metadata":                           {},
+						"min_cpu_platform":                   true,
+						"oauth_scopes": [
+							false,
+						],
+						"reservation_affinity": [],
+						"service_account":      true,
+						"shielded_instance_config": [
+							{},
+						],
+						"tags": [
+							false,
+							false,
+						],
+						"taint": true,
+						"workload_metadata_config": [
+							{},
+						],
+					},
+				],
+				"node_count":       true,
+				"node_locations":   true,
+				"operation":        true,
+				"placement_policy": [],
+				"timeouts":         {},
+				"upgrade_settings": [
+					{
+						"blue_green_settings": true,
+					},
+				],
+				"version": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          "default-node-pool",
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "pools",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_container_node_pool",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.google_container_node_pool.pools[\"default-preemptible-node-pool\"]": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.google_container_node_pool.pools[\"default-preemptible-node-pool\"]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"autoscaling": [
+					{
+						"max_node_count":       1000,
+						"min_node_count":       0,
+						"total_max_node_count": null,
+						"total_min_node_count": null,
+					},
+				],
+				"cluster":            "gke-e-gcp-sentinel-01",
+				"initial_node_count": 0,
+				"location":           "us-central1",
+				"management": [
+					{
+						"auto_repair":  true,
+						"auto_upgrade": false,
+					},
+				],
+				"name": "default-preemptible-node-pool",
+				"node_config": [
+					{
+						"advanced_machine_features":          [],
+						"boot_disk_kms_key":                  "",
+						"disk_size_gb":                       100,
+						"disk_type":                          "pd-standard",
+						"ephemeral_storage_local_ssd_config": [],
+						"gcfs_config":                        [],
+						"gvnic":                              [],
+						"image_type":                         "COS_CONTAINERD",
+						"kubelet_config":                     [],
+						"labels": {
+							"cluster_name": "gke-e-gcp-sentinel-01",
+							"node_pool":    "default-preemptible-node-pool",
+							"preemptible":  "true",
+						},
+						"linux_node_config":           [],
+						"local_nvme_ssd_block_config": [],
+						"local_ssd_count":             0,
+						"logging_variant":             "DEFAULT",
+						"machine_type":                "e2-medium",
+						"metadata": {
+							"cluster_name":             "gke-e-gcp-sentinel-01",
+							"disable-legacy-endpoints": "true",
+							"node_pool":                "default-preemptible-node-pool",
+						},
+						"node_group": null,
+						"oauth_scopes": [
+							"https://www.googleapis.com/auth/cloud-platform",
+						],
+						"preemptible":          true,
+						"reservation_affinity": [],
+						"resource_labels":      null,
+						"shielded_instance_config": [
+							{
+								"enable_integrity_monitoring": false,
+								"enable_secure_boot":          false,
+							},
+						],
+						"spot": false,
+						"tags": [
+							"gke-gke-e-gcp-sentinel-01",
+							"gke-gke-e-gcp-sentinel-01-default-preemptible-node-pool",
+						],
+						"workload_metadata_config": [
+							{
+								"mode": "GKE_METADATA",
+							},
+						],
+					},
+				],
+				"placement_policy": [],
+				"project":          "prj-e-gcp-headlands-50e8",
+				"timeouts": {
+					"create": "45m",
+					"delete": "45m",
+					"update": "45m",
+				},
+				"upgrade_settings": [
+					{
+						"max_surge":       1,
+						"max_unavailable": 0,
+						"strategy":        "SURGE",
+					},
+				],
+			},
+			"after_unknown": {
+				"autoscaling": [
+					{
+						"location_policy": true,
+					},
+				],
+				"id": true,
+				"instance_group_urls":         true,
+				"managed_instance_group_urls": true,
+				"management": [
+					{},
+				],
+				"max_pods_per_node": true,
+				"name_prefix":       true,
+				"network_config":    true,
+				"node_config": [
+					{
+						"advanced_machine_features":          [],
+						"ephemeral_storage_local_ssd_config": [],
+						"gcfs_config":                        [],
+						"guest_accelerator":                  true,
+						"gvnic":                              [],
+						"kubelet_config":                     [],
+						"labels":                             {},
+						"linux_node_config":                  [],
+						"local_nvme_ssd_block_config":        [],
+						"metadata":                           {},
+						"min_cpu_platform":                   true,
+						"oauth_scopes": [
+							false,
+						],
+						"reservation_affinity": [],
+						"service_account":      true,
+						"shielded_instance_config": [
+							{},
+						],
+						"tags": [
+							false,
+							false,
+						],
+						"taint": true,
+						"workload_metadata_config": [
+							{},
+						],
+					},
+				],
+				"node_count":       true,
+				"node_locations":   true,
+				"operation":        true,
+				"placement_policy": [],
+				"timeouts":         {},
+				"upgrade_settings": [
+					{
+						"blue_green_settings": true,
+					},
+				],
+				"version": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          "default-preemptible-node-pool",
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "pools",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_container_node_pool",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.random_shuffle.available_zones": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.random_shuffle.available_zones",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"input": [
+					"us-central1-a",
+					"us-central1-b",
+					"us-central1-c",
+					"us-central1-f",
+				],
+				"keepers":      null,
+				"result_count": 3,
+				"seed":         null,
+			},
+			"after_unknown": {
+				"id": true,
+				"input": [
+					false,
+					false,
+					false,
+					false,
+				],
+				"result": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "available_zones",
+		"provider_name":  "registry.terraform.io/hashicorp/random",
+		"type":           "random_shuffle",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke.random_string.cluster_service_account_suffix": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke.random_string.cluster_service_account_suffix",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"keepers":          null,
+				"length":           4,
+				"lower":            true,
+				"min_lower":        0,
+				"min_numeric":      0,
+				"min_special":      0,
+				"min_upper":        0,
+				"number":           true,
+				"numeric":          true,
+				"override_special": null,
+				"special":          false,
+				"upper":            false,
+			},
+			"after_unknown": {
+				"id":     true,
+				"result": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke",
+		"name":           "cluster_service_account_suffix",
+		"provider_name":  "registry.terraform.io/hashicorp/random",
+		"type":           "random_string",
+	},
+	"module.gke-sentinel-fail.module.core-gke.module.gke_auth.data.google_container_cluster.gke_cluster": {
+		"address": "module.gke-sentinel-fail.module.core-gke.module.gke_auth.data.google_container_cluster.gke_cluster",
+		"change": {
+			"actions": [
+				"read",
+			],
+			"after": {
+				"location": "us-central1",
+				"project":  "prj-e-gcp-headlands-50e8",
+			},
+			"after_unknown": {
+				"addons_config":                     true,
+				"authenticator_groups_config":       true,
+				"binary_authorization":              true,
+				"cluster_autoscaling":               true,
+				"cluster_ipv4_cidr":                 true,
+				"confidential_nodes":                true,
+				"cost_management_config":            true,
+				"database_encryption":               true,
+				"datapath_provider":                 true,
+				"default_max_pods_per_node":         true,
+				"default_snat_status":               true,
+				"description":                       true,
+				"dns_config":                        true,
+				"enable_autopilot":                  true,
+				"enable_binary_authorization":       true,
+				"enable_intranode_visibility":       true,
+				"enable_kubernetes_alpha":           true,
+				"enable_l4_ilb_subsetting":          true,
+				"enable_legacy_abac":                true,
+				"enable_shielded_nodes":             true,
+				"enable_tpu":                        true,
+				"endpoint":                          true,
+				"gateway_api_config":                true,
+				"id":                                true,
+				"initial_node_count":                true,
+				"ip_allocation_policy":              true,
+				"label_fingerprint":                 true,
+				"logging_config":                    true,
+				"logging_service":                   true,
+				"maintenance_policy":                true,
+				"master_auth":                       true,
+				"master_authorized_networks_config": true,
+				"master_version":                    true,
+				"mesh_certificates":                 true,
+				"min_master_version":                true,
+				"monitoring_config":                 true,
+				"monitoring_service":                true,
+				"name":                              true,
+				"network":                           true,
+				"network_policy":                    true,
+				"networking_mode":                   true,
+				"node_config":                       true,
+				"node_locations":                    true,
+				"node_pool":                         true,
+				"node_pool_defaults":                true,
+				"node_version":                      true,
+				"notification_config":               true,
+				"operation":                         true,
+				"private_cluster_config":            true,
+				"private_ipv6_google_access":        true,
+				"release_channel":                   true,
+				"remove_default_node_pool":          true,
+				"resource_labels":                   true,
+				"resource_usage_export_config":      true,
+				"self_link":                         true,
+				"service_external_ips_config":       true,
+				"services_ipv4_cidr":                true,
+				"subnetwork":                        true,
+				"tpu_ipv4_cidr_block":               true,
+				"vertical_pod_autoscaling":          true,
+				"workload_identity_config":          true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "module.gke-sentinel-fail.module.core-gke.module.gke_auth",
+		"name":           "gke_cluster",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_container_cluster",
+	},
+}
+

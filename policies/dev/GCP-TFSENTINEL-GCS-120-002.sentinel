@@ -1,0 +1,35 @@
+import "tfplan/v2" as tfplan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GCS",
+      "priority": "Critical",
+      "customComplianceCacRef": "GCPPLAT-GCS-02",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure that Cloud Storage Buckets Have Uniform Bucket-Level Access enabled",
+	  "policyName": "GCP-TFSENTINEL-GCS-120-002.sentinel",
+ }
+
+allStorageBuckets = filter tfplan.resource_changes as _, resource_changes {
+	resource_changes.type is "google_storage_bucket" and
+		resource_changes.mode is "managed" and
+		(resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
+}
+
+uniform_bucket_level_access = rule {
+	all allStorageBuckets as _, bucket {
+		keys(bucket.change.after) contains "uniform_bucket_level_access"
+	}
+}
+
+ensure_storage_bucket_uniform_is_enabled = rule when uniform_bucket_level_access is true {
+	all allStorageBuckets as _, bucket {
+		length(bucket.change.after.uniform_bucket_level_access) > 0
+	}
+}
+
+main = rule {
+	uniform_bucket_level_access and
+	ensure_storage_bucket_uniform_is_enabled
+}

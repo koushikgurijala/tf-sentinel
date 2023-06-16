@@ -1,0 +1,43 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# workload_metadata_config is set to GKE_METADATA for all node pools, if there are no node pools created
+# then this means the default nodepool is used, which will fail the policy.
+# it will also validate that workload_identity_config has a prefix of prj which indicates that it exists and is configured
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GKE",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GKE-07",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure using dedicated GCP Service Accounts and Workload Identity",
+      "policyName": "GCP-TFSENTINEL-GKE-120-002.sentinel",
+}
+
+# Get all GKE clusters
+allGKENodePools = plan.find_resources("google_container_node_pool")
+allGKEClusters = plan.find_resources("google_container_cluster")
+
+GKEClustersWithoutWorkloadIdentity = plan.filter_attribute_does_not_have_prefix(allGKEClusters,
+                    "workload_identity_config.0.workload_pool", "prj", true)
+GKENodePoolsWithoutMetadataConfig = plan.filter_attribute_is_not_value(allGKENodePools,
+                    "node_config.0.workload_metadata_config.0.mode", "GKE_METADATA", true)
+
+clusters_without_workload_identity = length(GKEClustersWithoutWorkloadIdentity["messages"])
+node_pools_without_metadata_config = length(GKENodePoolsWithoutMetadataConfig["messages"])
+
+missing_node_pools = length(allGKENodePools) is 0 and length(allGKEClusters) is not 0
+
+# Main rule
+validated = clusters_without_workload_identity is 0 and
+            node_pools_without_metadata_config is 0 and
+            missing_node_pools is false
+
+
+
+main = rule {
+  validated
+}

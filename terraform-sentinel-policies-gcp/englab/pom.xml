@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.td.azcld</groupId>
+    <artifactId>terraform-sentinel-policies-gcp</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>TD - Terraform GCP Sentinel Policy</name>
+    <description>${project.name}</description>
+
+    <organization>
+        <name>Toronto-Dominion Bank Group (TD)</name>
+        <url>https://www.td.com/</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/TD-Enterprise/cac-terraform-sentinel-gcp.git</url>
+        <connection>scm:git:https://github.com/TD-Enterprise/cac-terraform-sentinel-gcp.git</connection>
+        <developerConnection>scm:git:https://github.com/TD-Enterprise/cac-terraform-sentinel-gcp.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <!-- # CI params-->
+        <mal.code>AZCLD</mal.code>
+        <mal.code.lowercase>azcld</mal.code.lowercase>
+    </properties>
+
+    <!--    <dependencyManagement>-->
+    <dependencies>
+
+    </dependencies>
+    <!--    </dependencyManagement>-->
+
+    <build>
+        <finalName>terraform-sentinel-policies</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>publish-repository</id>
+            <name>Releases</name>
+            <url>${env.nexus_url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>publish-repository</id>
+            <name>Snapshots</name>
+            <url>${env.nexus_url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

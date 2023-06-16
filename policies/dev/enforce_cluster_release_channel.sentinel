@@ -1,0 +1,39 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the GKE cluster is in a STABLE or REGULAR release channel
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+  "standard": "",
+  "control": "",
+}
+
+allowed = [
+	{
+		"channel": "REGULAR",
+	},
+      					{
+		"channel": "STABLE",
+	},
+]
+
+# get containr clusters resource
+containerClusters = plan.find_resources("google_container_cluster")
+
+# get non REGULAR or STABEL release channel, this plan function 
+# works on resource change fields that have value of a list
+wrongReleaseChannel = plan.filter_attribute_contains_items_not_in_list(containerClusters,
+                        "release_channel", allowed, true).resources
+
+# Main rule, check only if dataflow job is created
+if containerClusters is not empty {
+   validated = wrongReleaseChannel is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

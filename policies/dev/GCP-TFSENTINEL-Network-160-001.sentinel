@@ -1,0 +1,66 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the network in this environment by default has deny all traffic for ingress and egress.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "Network",
+      "priority": "High",
+      "customComplianceCacRef": "TDCCM-NC-004",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure to Deny All is set to all Egress Traffic",
+      "policyName": "GCP-TFSENTINEL-Network-160-001.sentinel",
+}
+
+deny_all = [
+                    {
+                        "ports": [],
+                        "protocol": "all",
+                    },
+          ]
+
+forbidden_range = ["0.0.0.0/0",]
+
+networkCreation = plan.find_resources("google_compute_network")
+
+# Get fire walls, each can have multiple firewall rules
+allFireWalls = plan.find_resources("google_compute_firewall")
+
+# Egress firewalls
+egressFirewalls = plan.filter_attribute_in_list(allFireWalls,
+                        "direction", "EGRESS", false).resources
+
+
+# filter resource change base on _, resource_changes as key, values
+defaultDenyAllEgress = filter egressFirewalls as _, resource_changes {
+  resource_changes.change.after.priority == 65535 and
+  resource_changes.change.after.deny == deny_all and 
+  resource_changes.change.after.destination_ranges == forbidden_range
+}
+
+
+# Ingress firewalls
+ingressFirewalls = plan.filter_attribute_in_list(allFireWalls,
+                        "direction", "INGRESS", false).resources
+
+defaultDenyAllIngress = filter ingressFirewalls as _, resource_changes {
+  resource_changes.change.after.priority == 65535 and
+  resource_changes.change.after.deny == deny_all and 
+  resource_changes.change.after.source_ranges == forbidden_range
+}
+          
+
+# Main rule, check only if network is created
+if networkCreation is not empty {
+  validated =  defaultDenyAllEgress is not empty and
+               defaultDenyAllIngress is not empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

@@ -1,0 +1,35 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the GKE cluster has shielded node pools enabled
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GKE",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GKE-26",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure Shielded GKE Nodes are Enabled",
+      "policyName": "GCP-TFSENTINEL-GKE-160-003.sentinel",
+}
+
+# get cluster resources
+containerClusters = plan.find_resources("google_container_cluster")
+
+# check if any cluster is not having shielded nodes enabled
+noShieledNodes = filter containerClusters as _, resource_changes {
+  resource_changes.change.after.enable_shielded_nodes != true
+}
+
+# Main rule, check only if there is cluster created
+if containerClusters is not empty {
+   validated = noShieledNodes is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

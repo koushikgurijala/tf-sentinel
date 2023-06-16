@@ -1,0 +1,129 @@
+---
+name: deploy-policy
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: 'Target environment code (dev, pat, prod):'
+        required: true
+        type: choice
+        options:
+          - "englab"
+          - "qa"
+          - "dev"
+        default: "englab"
+
+env:
+  # TF_WORKSPACE: ${{ github.event.inputs.app_code }}-${{ github.event.inputs.target_environment }}
+  # CAC_TARGET_ENVIRONMENT: ${{ github.event.inputs.target_environment }}
+  # CAC_TFE_PROVIDER_FILE: "./configuration/${{ github.event.inputs.target_environment }}/terraform/${{ github.event.inputs.app_code }}/provider.tf"
+  # LOCAL_TEST_ENV: ${{ secrets.LOCAL_TEST_ENV }}
+  # VAULT_TOKEN_PATH: '/etc/vault.d'
+  # VAULT_TOKEN_FILE: 'vault-token-via-agent'
+  # ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  # EDP_ENV: ${{ github.event.inputs.target_environment }}
+  # EDP_VERSION: '2.0'
+
+# Process
+jobs:
+  package_policies:
+    name: Deploy Policy - ${{ github.ref }} - ${{ github.event.inputs.target_environment }} - ${{ github.event.inputs.app_code }}
+
+    runs-on: [ "${{ github.event.inputs.target_environment }}" ]
+
+    defaults:
+      run: 
+        working-directory: ./
+
+    steps:
+      - name: Copy Vault Token
+        shell: bash
+        run: |
+          if [ -e ${{ env.VAULT_TOKEN_PATH }}/${{ env.VAULT_TOKEN_FILE }} ]; then cp ${{ env.VAULT_TOKEN_PATH }}/${{ env.VAULT_TOKEN_FILE }} ${{ github.workspace }}/ ; fi
+      
+      - name: Retrieve Vault Secrets
+        id: retrieve-vault-tf
+        uses: "docker://releases.registry.td.com/td/pipe/edp-core-github-actions:2.5.2"
+        env:
+          INPUT_FUNCTION: "vault"
+          CLOUD_ENV: ${{ github.event.inputs.target_environment }}
+          VAULT_TOKEN_PATH: "."
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+          VAULT_SECRET_VARIABLES: "TF_TOKEN"
+          TF_TOKEN_SECRET_PATH: "azcld/csl/terraform-api-token-${{ github.event.inputs.target_environment }}-cert-org"
+          TF_TOKEN_SECRET_KEY: "terraform-api-token-${{ github.event.inputs.target_environment }}-cert-org"
+      
+      - id: vault_token_cleanup
+        name: Remove Vault Token
+        shell: bash
+        run: |
+          if [ -e ${{ github.workspace }}/${{ env.VAULT_TOKEN_FILE }} ]; then rm -f ${{ github.workspace }}/${{ env.VAULT_TOKEN_FILE }} ; fi
+      
+      #- name: Retrieve Terraform Vault Secrets
+      #  id: retrieve-vault-tf
+      #  uses: TD-Github-Actions/edp-core-github-actions@2.0.3
+      #  with:
+      #    function: "vault"
+      #  env:
+      #    VAULT_MOUNT_POINT: "azcld"
+      #    VAULT_KEYS: "TF_TOKEN"
+      #    TF_TOKEN: "csl/terraform-api-token-${{ github.event.inputs.target_environment }}-cert-org"
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Calculate Local Variables
+        run: |
+          provider_content=$(cat ${{ env.CAC_TFE_PROVIDER_FILE }})
+          pattern='hostname\s*=\s*"([^"]*)"'
+          if [[ "$provider_content" =~ $pattern ]]
+          then
+            tfe_hostname="${BASH_REMATCH[1]}"
+            echo "tfe_hostname:$tfe_hostname"
+          else
+            echo 'Error: TFE hostname not found in ${provider_content}, terminating...'
+            exit 1
+          fi
+          echo tfe_hostname=$tfe_hostname>> $GITHUB_ENV
+      - name: List Local Variables
+        run: |
+          echo tfe_hostname: ${{ env.tfe_hostname }}
+      - name: Setup TF
+        uses: TD-Github-Actions/setup-terraform@master
+        with:
+          terraform_version: 0.13.7
+          cli_config_credentials_hostname: ${{ env.tfe_hostname }}
+          cli_config_credentials_token: ${{ env.TF_TOKEN }}
+
+      - name: Copy App files
+        run: cp ./pipeline/tf-apps/${{ github.event.inputs.app_code }}/*.* ./
+
+      - name: Copy App config
+        run: cp ./configuration/${{ github.event.inputs.target_environment }}/terraform/${{ github.event.inputs.app_code }}/*.* ./
+
+      - name: List Files
+        run: find . -iname "*.*"
+
+      - name: List Environment Variables
+        run: env |sort
+
+      - name: Init TF
+        run: terraform init -backend=true -input=false .
+
+      - name: List TF Workspaces
+        run: terraform workspace list
+
+      - name: Validate TF
+        run: terraform validate
+
+      - name: Plan TF
+        run: terraform plan
+        
+      - name: Destroy TF
+        if: ${{ github.event.inputs.terraform_destroy == 'yes' }}
+        run: terraform destroy -auto-approve ${{env.composition_dir}}
+
+      - name: Apply TF
+        if: ${{ github.event.inputs.terraform_apply == 'yes' }}
+        run: terraform apply -auto-approve ${{env.composition_dir}}

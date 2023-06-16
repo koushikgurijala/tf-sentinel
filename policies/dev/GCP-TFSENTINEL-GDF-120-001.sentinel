@@ -1,0 +1,63 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the dataflow job created uses a custom service account with allowed roles here only.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+import "strings"
+import "json"
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GDF",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GDF-04",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure to create a new service account with only the roles and permissions that are required for the Dataflow worker",
+      "policyName": "GCP-TFSENTINEL-GDF-120-001.sentinel",
+}
+
+
+minimumRoles = [
+  "roles/dataflow.admin", 
+  "roles/dataflow.worker", 
+  "roles/dataflow.serviceAgent", 
+  "roles/compute.serviceAgent", 
+  "roles/storage.admin",
+]
+
+# get dataflow job resource
+dataflowJob = plan.find_resources("google_dataflow_job")
+
+# find roles for dataflow service account with id dataflow-sa-splunk by finding all roles created
+# and filter them with the service account id
+serviceAccountRoles = plan.find_resources("google_project_iam_member")
+
+dataflowServiceAccountRoles = filter serviceAccountRoles as _, resource_changes {
+  resource_changes.change.after.member matches "dataflow-sa-splunk"
+}
+
+serviceAccontRolesAreMinimum = rule {
+  all dataflowServiceAccountRoles as _, resource_changes {
+    minimumRoles contains resource_changes.change.after.role
+  }
+}
+
+# all dataflow jobs should use custom dataflow service account 
+allJobsUseDataflowServiceAccount = rule { 
+  all dataflowJob as _, resource_changes {
+    resource_changes.change.after.service_account_email matches "dataflow-sa-splunk"
+  }
+}
+
+# Main rule, check only if dataflow job is created
+if dataflowJob is not empty {
+   validated = allJobsUseDataflowServiceAccount and 
+               serviceAccontRolesAreMinimum
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

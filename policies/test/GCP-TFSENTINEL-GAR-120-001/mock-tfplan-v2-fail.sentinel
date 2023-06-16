@@ -1,0 +1,744 @@
+terraform_version = "1.4.0"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]": {
+			"address":        "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "project-roles",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_project_iam_member",
+			"values": {
+				"condition": [],
+				"project":   "prj-s-jon-laberge",
+				"role":      "roles/artifactregistry.admin",
+			},
+		},
+		"module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]": {
+			"address":        "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "project-roles",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_project_iam_member",
+			"values": {
+				"condition": [],
+				"project":   "prj-s-jon-laberge",
+				"role":      "roles/artifactregistry.reader",
+			},
+		},
+		"module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]": {
+			"address":        "module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          "e-test-app",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "service_accounts",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_service_account",
+			"values": {
+				"account_id":   "sa-e-test-app",
+				"description":  "",
+				"disabled":     false,
+				"display_name": "Terraform-managed service account",
+				"project":      "prj-s-jon-laberge",
+				"timeouts":     null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]": {
+		"address": "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"condition": [],
+				"project":   "prj-s-jon-laberge",
+				"role":      "roles/artifactregistry.admin",
+			},
+			"after_unknown": {
+				"condition": [],
+				"etag":      true,
+				"id":        true,
+				"member":    true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin",
+		"mode":           "managed",
+		"module_address": "module.service_accounts",
+		"name":           "project-roles",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_project_iam_member",
+	},
+	"module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]": {
+		"address": "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"condition": [],
+				"project":   "prj-s-jon-laberge",
+				"role":      "roles/artifactregistry.reader",
+			},
+			"after_unknown": {
+				"condition": [],
+				"etag":      true,
+				"id":        true,
+				"member":    true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader",
+		"mode":           "managed",
+		"module_address": "module.service_accounts",
+		"name":           "project-roles",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_project_iam_member",
+	},
+	"module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]": {
+		"address": "module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"account_id":   "sa-e-test-app",
+				"description":  "",
+				"disabled":     false,
+				"display_name": "Terraform-managed service account",
+				"project":      "prj-s-jon-laberge",
+				"timeouts":     null,
+			},
+			"after_unknown": {
+				"email":     true,
+				"id":        true,
+				"member":    true,
+				"name":      true,
+				"unique_id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          "e-test-app",
+		"mode":           "managed",
+		"module_address": "module.service_accounts",
+		"name":           "service_accounts",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_service_account",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"constant_value": "prj-s-jon-laberge",
+					},
+					"region": {
+						"constant_value": "us-central1",
+					},
+					"zone": {
+						"constant_value": "us-central1-a",
+					},
+				},
+				"full_name":          "registry.terraform.io/hashicorp/google",
+				"name":               "google",
+				"version_constraint": "~> 4.0",
+			},
+		},
+		"root_module": {
+			"module_calls": {
+				"service_accounts": {
+					"expressions": {
+						"names": {
+							"constant_value": [
+								"e-test-app",
+							],
+						},
+						"prefix": {
+							"constant_value": "sa",
+						},
+						"project_id": {
+							"constant_value": "prj-s-jon-laberge",
+						},
+						"project_roles": {
+							"constant_value": [
+								"prj-s-jon-laberge=>roles/artifactregistry.admin",
+								"prj-s-jon-laberge=>roles/artifactregistry.reader",
+							],
+						},
+					},
+					"module": {
+						"outputs": {
+							"email": {
+								"description": "Service account email (for single use).",
+								"expression": {
+									"references": [
+										"local.emails_list[0]",
+										"local.emails_list",
+									],
+								},
+							},
+							"emails": {
+								"description": "Service account emails by name.",
+								"expression": {
+									"references": [
+										"local.service_accounts_list",
+										"local.emails_list",
+									],
+								},
+							},
+							"emails_list": {
+								"description": "Service account emails as list.",
+								"expression": {
+									"references": [
+										"local.emails_list",
+									],
+								},
+							},
+							"iam_email": {
+								"description": "IAM-format service account email (for single use).",
+								"expression": {
+									"references": [
+										"local.iam_emails_list[0]",
+										"local.iam_emails_list",
+									],
+								},
+							},
+							"iam_emails": {
+								"description": "IAM-format service account emails by name.",
+								"expression": {
+									"references": [
+										"local.service_accounts_list",
+										"local.iam_emails_list",
+									],
+								},
+							},
+							"iam_emails_list": {
+								"description": "IAM-format service account emails as list.",
+								"expression": {
+									"references": [
+										"local.iam_emails_list",
+									],
+								},
+							},
+							"key": {
+								"description": "Service account key (for single use).",
+								"expression": {
+									"references": [
+										"var.generate_keys",
+										"google_service_account_key.keys",
+										"var.names[0]",
+										"var.names",
+									],
+								},
+								"sensitive": true,
+							},
+							"keys": {
+								"description": "Map of service account keys.",
+								"expression": {
+									"references": [
+										"local.names",
+										"var.generate_keys",
+										"google_service_account_key.keys",
+									],
+								},
+								"sensitive": true,
+							},
+							"service_account": {
+								"description": "Service account resource (for single use).",
+								"expression": {
+									"references": [
+										"local.service_accounts_list[0]",
+										"local.service_accounts_list",
+									],
+								},
+							},
+							"service_accounts": {
+								"description": "Service account resources as list.",
+								"expression": {
+									"references": [
+										"local.service_accounts_list",
+									],
+								},
+							},
+							"service_accounts_map": {
+								"description": "Service account resources by name.",
+								"expression": {
+									"references": [
+										"google_service_account.service_accounts",
+									],
+								},
+							},
+						},
+						"resources": [
+							{
+								"address": "google_billing_account_iam_member.billing_user",
+								"expressions": {
+									"billing_account_id": {
+										"references": [
+											"var.billing_account_id",
+										],
+									},
+									"member": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value",
+										],
+									},
+									"role": {
+										"constant_value": "roles/billing.user",
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.account_billing",
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "billing_user",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_billing_account_iam_member",
+							},
+							{
+								"address": "google_organization_iam_member.billing_user",
+								"expressions": {
+									"member": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value",
+										],
+									},
+									"org_id": {
+										"references": [
+											"var.org_id",
+										],
+									},
+									"role": {
+										"constant_value": "roles/billing.user",
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.org_billing",
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "billing_user",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_organization_iam_member",
+							},
+							{
+								"address": "google_organization_iam_member.organization_viewer",
+								"expressions": {
+									"member": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value",
+										],
+									},
+									"org_id": {
+										"references": [
+											"var.org_id",
+										],
+									},
+									"role": {
+										"constant_value": "roles/resourcemanager.organizationViewer",
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.xpn",
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "organization_viewer",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_organization_iam_member",
+							},
+							{
+								"address": "google_organization_iam_member.xpn_admin",
+								"expressions": {
+									"member": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value",
+										],
+									},
+									"org_id": {
+										"references": [
+											"var.org_id",
+										],
+									},
+									"role": {
+										"constant_value": "roles/compute.xpnAdmin",
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.xpn",
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "xpn_admin",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_organization_iam_member",
+							},
+							{
+								"address": "google_project_iam_member.project-roles",
+								"expressions": {
+									"member": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value.name",
+											"each.value",
+										],
+									},
+									"project": {
+										"references": [
+											"each.value.role",
+											"each.value",
+										],
+									},
+									"role": {
+										"references": [
+											"each.value.role",
+											"each.value",
+										],
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.project_roles_map_data",
+									],
+								},
+								"mode":                "managed",
+								"name":                "project-roles",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_project_iam_member",
+							},
+							{
+								"address": "google_service_account.service_accounts",
+								"expressions": {
+									"account_id": {
+										"references": [
+											"local.prefix",
+											"each.value",
+										],
+									},
+									"description": {
+										"references": [
+											"var.names",
+											"each.value",
+											"var.descriptions",
+											"var.description",
+											"var.descriptions",
+											"var.names",
+											"each.value",
+										],
+									},
+									"display_name": {
+										"references": [
+											"var.display_name",
+										],
+									},
+									"project": {
+										"references": [
+											"var.project_id",
+										],
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "service_accounts",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_service_account",
+							},
+							{
+								"address": "google_service_account_key.keys",
+								"expressions": {
+									"service_account_id": {
+										"references": [
+											"google_service_account.service_accounts",
+											"each.value",
+										],
+									},
+								},
+								"for_each_expression": {
+									"references": [
+										"var.generate_keys",
+										"local.names",
+									],
+								},
+								"mode":                "managed",
+								"name":                "keys",
+								"provider_config_key": "google",
+								"schema_version":      0,
+								"type":                "google_service_account_key",
+							},
+						],
+						"variables": {
+							"billing_account_id": {
+								"default":     "",
+								"description": "If assigning billing role, specificy a billing account (default is to assign at the organizational level).",
+							},
+							"description": {
+								"default":     "",
+								"description": "Default description of the created service accounts (defaults to no description)",
+							},
+							"descriptions": {
+								"default":     [],
+								"description": "List of descriptions for the created service accounts (elements default to the value of `description`)",
+							},
+							"display_name": {
+								"default":     "Terraform-managed service account",
+								"description": "Display names of the created service accounts (defaults to 'Terraform-managed service account')",
+							},
+							"generate_keys": {
+								"default":     false,
+								"description": "Generate keys for service accounts.",
+							},
+							"grant_billing_role": {
+								"default":     false,
+								"description": "Grant billing user role.",
+							},
+							"grant_xpn_roles": {
+								"default":     true,
+								"description": "Grant roles for shared VPC management.",
+							},
+							"names": {
+								"default":     [],
+								"description": "Names of the service accounts to create.",
+							},
+							"org_id": {
+								"default":     "",
+								"description": "Id of the organization for org-level roles.",
+							},
+							"prefix": {
+								"default":     "",
+								"description": "Prefix applied to service account names.",
+							},
+							"project_id": {
+								"description": "Project id where service account will be created.",
+							},
+							"project_roles": {
+								"default":     [],
+								"description": "Common roles to apply to all service accounts, project=>role as elements.",
+							},
+						},
+					},
+					"source": "terraform-google-modules/service-accounts/google",
+				},
+			},
+		},
+	},
+	"format_version": "1.1",
+	"planned_values": {
+		"root_module": {
+			"child_modules": [
+				{
+					"address": "module.service_accounts",
+					"resources": [
+						{
+							"address":        "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]",
+							"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin",
+							"mode":           "managed",
+							"name":           "project-roles",
+							"provider_name":  "registry.terraform.io/hashicorp/google",
+							"schema_version": 0,
+							"sensitive_values": {
+								"condition": [],
+							},
+							"type": "google_project_iam_member",
+							"values": {
+								"condition": [],
+								"project":   "prj-s-jon-laberge",
+								"role":      "roles/artifactregistry.admin",
+							},
+						},
+						{
+							"address":        "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]",
+							"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader",
+							"mode":           "managed",
+							"name":           "project-roles",
+							"provider_name":  "registry.terraform.io/hashicorp/google",
+							"schema_version": 0,
+							"sensitive_values": {
+								"condition": [],
+							},
+							"type": "google_project_iam_member",
+							"values": {
+								"condition": [],
+								"project":   "prj-s-jon-laberge",
+								"role":      "roles/artifactregistry.reader",
+							},
+						},
+						{
+							"address":          "module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]",
+							"index":            "e-test-app",
+							"mode":             "managed",
+							"name":             "service_accounts",
+							"provider_name":    "registry.terraform.io/hashicorp/google",
+							"schema_version":   0,
+							"sensitive_values": {},
+							"type":             "google_service_account",
+							"values": {
+								"account_id":   "sa-e-test-app",
+								"description":  "",
+								"disabled":     false,
+								"display_name": "Terraform-managed service account",
+								"project":      "prj-s-jon-laberge",
+								"timeouts":     null,
+							},
+						},
+					],
+				},
+			],
+		},
+	},
+	"relevant_attributes": [
+		{
+			"attribute": [],
+			"resource":  "module.service_accounts.google_service_account.service_accounts",
+		},
+		{
+			"attribute": [],
+			"resource":  "module.service_accounts.google_service_account_key.keys",
+		},
+	],
+	"resource_changes": [
+		{
+			"address": "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin\"]",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"condition": [],
+					"project":   "prj-s-jon-laberge",
+					"role":      "roles/artifactregistry.admin",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {
+					"condition": [],
+					"etag":      true,
+					"id":        true,
+					"member":    true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.admin",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "project-roles",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"type":           "google_project_iam_member",
+		},
+		{
+			"address": "module.service_accounts.google_project_iam_member.project-roles[\"e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader\"]",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"condition": [],
+					"project":   "prj-s-jon-laberge",
+					"role":      "roles/artifactregistry.reader",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {
+					"condition": [],
+					"etag":      true,
+					"id":        true,
+					"member":    true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"index":          "e-test-app-prj-s-jon-laberge=>roles/artifactregistry.reader",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "project-roles",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"type":           "google_project_iam_member",
+		},
+		{
+			"address": "module.service_accounts.google_service_account.service_accounts[\"e-test-app\"]",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"account_id":   "sa-e-test-app",
+					"description":  "",
+					"disabled":     false,
+					"display_name": "Terraform-managed service account",
+					"project":      "prj-s-jon-laberge",
+					"timeouts":     null,
+				},
+				"after_sensitive": {},
+				"after_unknown": {
+					"email":     true,
+					"id":        true,
+					"member":    true,
+					"name":      true,
+					"unique_id": true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"index":          "e-test-app",
+			"mode":           "managed",
+			"module_address": "module.service_accounts",
+			"name":           "service_accounts",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"type":           "google_service_account",
+		},
+	],
+	"terraform_version": "1.4.0",
+}

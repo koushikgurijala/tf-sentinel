@@ -1,0 +1,35 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the GKE cluster node pool has node secure boot enabled
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GKE",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GKE-28",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure Secure Boot for Shielded GKE Nodes is Enabled",
+      "policyName": "GCP-TFSENTINEL-GKE-160-002.sentinel",
+}
+
+# get containr node pool resource
+nodePools = plan.find_resources("google_container_node_pool")
+
+# check if any node pool does not have secure boot enabled
+noSecureBoot = filter nodePools as _, resource_changes {
+  resource_changes.change.after.node_config[0].shielded_instance_config[0].enable_secure_boot != true
+}
+
+# Main rule, check only if any node pool is created from cluster is created
+if nodePools is not empty {
+   validated = noSecureBoot is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

@@ -1,0 +1,30 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the GKE cluster node pool has node auto upgrade enabled
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+  "standard": "",
+  "control": "",
+}
+
+# get containr node pool resource
+nodePools = plan.find_resources("google_container_node_pool")
+
+# check if any node pool does not have auto upgrade enabled
+notAutoUpgradeNode = filter nodePools as _, resource_changes {
+  resource_changes.change.after.management[0].auto_upgrade == false
+}
+
+# Main rule, check only if a cluster is created
+if nodePools is not empty {
+   validated = notAutoUpgradeNode is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

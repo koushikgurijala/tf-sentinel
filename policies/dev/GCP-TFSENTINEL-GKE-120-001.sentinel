@@ -1,0 +1,38 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks
+# all GKE cluster resources to validate if any node_config contains the default
+# compute service account.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+# restrict-cluster-default-sa.sentinel
+# Ensure GKE clusters are not running using the Compute Engine default service account
+# Ref Jira Ticket:Ascent - Assurance ASCA-4667
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GKE",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GKE-07",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure GKE clusters are not running using the Compute Engine default service account",
+      "policyName": "GCP-TFSENTINEL-GKE-120-001.sentinel",
+}
+
+# Get all GKE clusters & Service Accounts
+allGKEClusters = plan.find_resources("google_container_cluster")
+
+clustersUsingDefaultServiceAccount = plan.filter_attribute_has_suffix(
+  allGKEClusters,
+  "node_config.0.service_account",
+  "-compute@developer.gserviceaccount.com",
+  true,
+  false,
+)
+
+
+
+main = rule {
+  length(clustersUsingDefaultServiceAccount["messages"]) is 0
+}

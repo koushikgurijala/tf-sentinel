@@ -1,0 +1,17 @@
+<assembly>
+    <id>terraform-sentinel-policies</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>../../policies/qa</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>*/test/**</exclude>
+                <exclude>*/test-data/**</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</assembly>

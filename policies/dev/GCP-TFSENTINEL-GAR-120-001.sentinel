@@ -1,0 +1,50 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# a service account is being created with the `-app` suffix, which is the SA used to pull images
+# if this service account is being created, than we check to see if any of the roles that would
+# grant more than read access to GAR is present
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GAR",
+      "priority": "Critical",
+      "customComplianceCacRef": "GCPPLAT-GAR-02",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Restrict cluster access to read-only for Google Artifact Registry",
+      "policyName": "GCP-TFSENTINEL-GAR-120-001.sentinel",
+}
+
+
+forbidden_gar_roles = [
+  "roles/artifactregistry.admin",
+  "roles/artifactregistry.createOnPushRepoAdmin",
+  "roles/artifactregistry.createOnPushWriter",
+  "roles/artifactregistry.repoAdmin",
+  "roles/artifactregistry.writer",
+  "roles/composer.worker",
+  "roles/cloudbuild.builds.builder",
+]
+
+# Get all Service Accounts and Roles
+AllSeviceAccounts = plan.find_resources("google_service_account")
+AllRoleBindings = plan.find_resources("google_project_iam_member")
+
+ClusterServiceAccounts = plan.filter_attribute_has_suffix(AllSeviceAccounts, "account_id", "-app", false, false)
+ForbiddenRoleBindings = plan.filter_attribute_in_list(AllRoleBindings, "role", forbidden_gar_roles, true)
+
+if length(ClusterServiceAccounts["messages"]) is not 0 {
+  if length(ForbiddenRoleBindings["messages"]) is not 0 {
+    validated = false
+  } else {
+    validated = true
+  }
+} else {
+  valided = true
+}
+
+main = rule {
+  validated
+}

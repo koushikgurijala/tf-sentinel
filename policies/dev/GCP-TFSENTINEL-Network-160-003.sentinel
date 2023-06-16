@@ -1,0 +1,71 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the network in this environment by has any firewall rule that allows all ingress and egress trafic
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "Network",
+      "priority": "High",
+      "customComplianceCacRef": "TDCCM-NC-004",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure Network is configured to Deny All by default",
+      "policyName": "GCP-TFSENTINEL-Network-160-003.sentinel",
+}
+
+all_protocol = [
+                    {
+                        "ports": [],
+                        "protocol": "all",
+                    },
+          ]
+
+# this means all ip ranges
+forbidden_range = ["0.0.0.0/0",]
+
+networkCreation = plan.find_resources("google_compute_network")
+
+
+# All Egress firewalls
+allFireWalls = plan.find_resources("google_compute_firewall")
+egressFirewalls = plan.filter_attribute_in_list(allFireWalls,
+                        "direction", "EGRESS", false).resources
+
+
+# All Ingress firewalls
+ingressFirewalls = plan.filter_attribute_in_list(allFireWalls,
+                        "direction", "INGRESS", false).resources
+
+
+# filter resource change base on _, resource_changes as key, values
+allowAllEgress = filter egressFirewalls as _, resource_changes {
+  resource_changes.change.after.allow == all_protocol and 
+  resource_changes.change.after.direction == "EGRESS" and
+  resource_changes.change.after.destination_ranges == forbidden_range
+}
+
+
+
+allowAllIngress = filter ingressFirewalls as _, resource_changes {
+  resource_changes.change.after.allow == all_protocol and 
+  resource_changes.change.after.direction == "INGRESS" and
+  resource_changes.change.after.source_ranges == forbidden_range
+}
+
+
+# Main rule, check only if network is created
+if networkCreation is not empty {
+   validated = allowAllEgress is empty and
+              allowAllIngress is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}
+
+
+

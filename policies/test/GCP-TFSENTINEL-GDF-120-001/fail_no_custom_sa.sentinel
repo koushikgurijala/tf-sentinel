@@ -1,0 +1,231 @@
+terraform_version = "1.4.0"
+
+
+variables = {
+	"billing_account": {
+		"name":  "billing_account",
+		"value": "011AFB-A17C1A-0ED5B0",
+	},
+	"billing_logs_dataset_name": {
+		"name":  "billing_logs_dataset_name",
+		"value": "all_billing_data",
+	},
+	"bootstrap_service_account_email": {
+		"name":  "bootstrap_service_account_email",
+		"value": "svc-terraform-test@terraform-bootstrap-375917.iam.gserviceaccount.com",
+	},
+	"c_svpc_host_project_id": {
+		"name":  "c_svpc_host_project_id",
+		"value": "prj-c-gcp-svpc-restricted-b1f2",
+	},
+	"common_folder_id": {
+		"name":  "common_folder_id",
+		"value": "22689620924",
+	},
+	"common_service_account_email": {
+		"name":  "common_service_account_email",
+		"value": "sa-b-gcp-common-tf@prj-b-gcp-seed-226d.iam.gserviceaccount.com",
+	},
+	"datadog-api-key": {
+		"name":  "datadog-api-key",
+		"value": "REDACTED_SENSITIVE",
+	},
+	"default_region1": {
+		"name":  "default_region1",
+		"value": "us-east4",
+	},
+	"default_region2": {
+		"name":  "default_region2",
+		"value": "us-central1",
+	},
+	"domains": {
+		"name": "domains",
+		"value": [
+			"dev-td.com",
+		],
+	},
+	"enable_os_login_policy": {
+		"name":  "enable_os_login_policy",
+		"value": false,
+	},
+	"environment_code": {
+		"name":  "environment_code",
+		"value": "c",
+	},
+	"environment_folders": {
+		"name": "environment_folders",
+		"value": [
+			"dev",
+			"pat",
+			"prod",
+		],
+	},
+	"folder_prefix": {
+		"name":  "folder_prefix",
+		"value": "fldr",
+	},
+	"foundation_common": {
+		"name":  "foundation_common",
+		"value": "common",
+	},
+	"foundation_environments": {
+		"name":  "foundation_environments",
+		"value": "environments",
+	},
+	"foundation_networking": {
+		"name":  "foundation_networking",
+		"value": "networking",
+	},
+	"foundation_org": {
+		"name":  "foundation_org",
+		"value": "org",
+	},
+	"foundation_projects": {
+		"name":  "foundation_projects",
+		"value": "projects",
+	},
+	"gcp_auditdata_viewer": {
+		"name":  "gcp_auditdata_viewer",
+		"value": "AZ_PIM_GCP_Security_Admin@dev-td.com",
+	},
+	"gcp_iam_admin": {
+		"name":  "gcp_iam_admin",
+		"value": "AZ_PIM_GCP_IAM_Admin@dev-td.com",
+	},
+	"gcp_network_admin": {
+		"name":  "gcp_network_admin",
+		"value": "AZ_PIM_GCP_Network_Admin@dev-td.com",
+	},
+	"gcp_platform_admin": {
+		"name":  "gcp_platform_admin",
+		"value": "AZ_PIM_GCP_Platform_Admin@dev-td.com",
+	},
+	"gcp_security_admin": {
+		"name":  "gcp_security_admin",
+		"value": "AZ_PIM_GCP_Security_Admin@dev-td.com",
+	},
+	"log_export_storage_force_destroy": {
+		"name":  "log_export_storage_force_destroy",
+		"value": true,
+	},
+	"log_export_storage_location": {
+		"name":  "log_export_storage_location",
+		"value": "us-east4",
+	},
+	"log_export_storage_retention_policy": {
+		"name": "log_export_storage_retention_policy",
+		"value": {
+			"is_locked":             false,
+			"retention_period_days": 1,
+		},
+	},
+	"log_export_storage_versioning": {
+		"name":  "log_export_storage_versioning",
+		"value": false,
+	},
+	"malcode": {
+		"name":  "malcode",
+		"value": "gcp",
+	},
+	"max_workers": {
+		"name":  "max_workers",
+		"value": 2,
+	},
+	"network_self_link": {
+		"name":  "network_self_link",
+		"value": "projects/prj-c-gcp-svpc-restricted-b1f2/global/networks/vpc-c-shared-restricted",
+	},
+	"org_id": {
+		"name":  "org_id",
+		"value": "102589584140",
+	},
+	"org_name": {
+		"name":  "org_name",
+		"value": "dev-td.com",
+	},
+	"parent_folder": {
+		"name":  "parent_folder",
+		"value": "",
+	},
+	"perimeter_name": {
+		"name":  "perimeter_name",
+		"value": "accessPolicies/756623949255/servicePerimeters/EngLab_perimeter",
+	},
+	"project_prefix": {
+		"name":  "project_prefix",
+		"value": "prj",
+	},
+	"projects_service_account_email": {
+		"name":  "projects_service_account_email",
+		"value": "sa-b-gcp-projects-tf@prj-b-gcp-seed-226d.iam.gserviceaccount.com",
+	},
+	"sa_prefix": {
+		"name":  "sa_prefix",
+		"value": "sa",
+	},
+	"splunk_token": {
+		"name":  "splunk_token",
+		"value": "REDACTED_SENSITIVE",
+	},
+	"splunk_url": {
+		"name":  "splunk_url",
+		"value": "https://10.106.210.83:8088",
+	},
+	"subnetwork_self_link": {
+		"name":  "subnetwork_self_link",
+		"value": "https://www.googleapis.com/compute/v1/projects/prj-c-gcp-svpc-restricted-b1f2/regions/us-central1/subnetworks/sb-c-shared-restricted-csl-dataflow-us-central1",
+	},
+}
+
+resource_changes = {
+	"module.dataflow_no_new_service_account_non_complaiant.google_dataflow_job.dataflow_job": {
+		"address": "module.dataflow_no_new_service_account_non_complaiant.google_dataflow_job.dataflow_job",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"enable_streaming_engine": null,
+				"ip_configuration":        "WORKER_IP_PRIVATE",
+				"kms_key_name":            null,
+				"machine_type":            "",
+				"max_workers":             1,
+				"name":                    "Private Dataflow",
+				"network":                 "default",
+				"on_delete":               "cancel",
+				"parameters": {
+					"kind":  "dataflow",
+					"value": "123",
+				},
+				"region":                       "us-central1",
+				"service_account_email":        "",
+				"skip_wait_on_job_termination": false,
+				"subnetwork":                   "",
+				"temp_gcs_location":            "gs://gs://<gcs_path_temp_data_bucket/tmp_dir",
+				"template_gcs_path":            "gs://<path-to-template>",
+				"timeouts":                     null,
+				"transform_name_mapping":       null,
+				"zone": "us-central1-a",
+			},
+			"after_unknown": {
+				"additional_experiments": true,
+				"id":         true,
+				"job_id":     true,
+				"labels":     true,
+				"parameters": {},
+				"project":    true,
+				"state":      true,
+				"type":       true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.dataflow_no_new_service_account_non_complaiant",
+		"name":           "dataflow_job",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_dataflow_job",
+	},
+}
+

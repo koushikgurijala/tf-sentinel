@@ -1,0 +1,298 @@
+{
+	"records": [
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-003/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-002/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-120-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-003/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GAR-120-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GCS-140-001/fail/gcp-functions",
+			"source": "../../common-functions/gcp-functions/gcp-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/gcp-functions/gcp-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-002/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-120-002/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-120-002/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_integrity_monitoring/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-001/pass2/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_auto_upgrade_node/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_release_channel/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-002/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GCS-140-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GAR-120-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-003/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-002/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_integrity_monitoring/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-003/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_release_channel/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_release_channel/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-150-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-003/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-120-001/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_auto_upgrade_node/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-003/noop-pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-120-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-002/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-002/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_integrity_monitoring/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GCS-140-001/pass/gcp-functions",
+			"source": "../../common-functions/gcp-functions/gcp-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/gcp-functions/gcp-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-003/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/enforce_cluster_auto_upgrade_node/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-120-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-Network-160-003/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-002/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GCS-140-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-150-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GKE-160-003/noop_pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-120-001/fail_no_custom_sa/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-120-001/fail_sa_excessive_roles/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-090-001/pass/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/GCP-TFSENTINEL-GDF-120-001/fail/tfplan-functions",
+			"source": "../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/koushikyachendra/Downloads/vscode-workspace/tf-sentinel/policies/englab/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		}
+	]
+}

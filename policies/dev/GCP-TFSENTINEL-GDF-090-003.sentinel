@@ -1,0 +1,36 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the dataflow job VMs uses private ip.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GDF",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GDF-03",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure Google DataFlow Job VMs use Private IPs",
+      "policyName": "GCP-TFSENTINEL-GDF-090-003.sentinel",
+}
+
+# get dataflow job resource
+dataflowJob = plan.find_resources("google_dataflow_job")
+
+# check if there's any ip  that's not private
+nonPrivateIp = filter dataflowJob as _, resource_changes {
+  resource_changes.change.after.ip_configuration == null or
+  resource_changes.change.after.ip_configuration == "WORKER_IP_PUBLIC"
+}
+
+# Main rule, check only if dataflow job is created
+if dataflowJob is not empty {
+   validated = nonPrivateIp is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

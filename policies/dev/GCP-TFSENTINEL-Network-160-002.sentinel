@@ -1,0 +1,27 @@
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "Network",
+      "priority": "High",
+      "customComplianceCacRef": "TDCCM-NC-004",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure to restrict Allow All source CIDR range for Ingress traffic",
+      "policyName": "GCP-TFSENTINEL-Network-160-002.sentinel",
+}
+
+forbidden_cidrs = ["0.0.0.0/0"]
+
+allFirewalls = plan.find_resources("google_compute_firewall")
+
+ingressFirewalls = plan.filter_attribute_is_value(allFirewalls,
+                        "direction", "INGRESS", false).resources
+
+violatingFirewalls = plan.filter_attribute_contains_items_from_list(
+                     ingressFirewalls, "source_ranges", forbidden_cidrs, true)
+
+violations = length(violatingFirewalls["messages"])
+
+main = rule {
+  violations is 0
+}

@@ -1,0 +1,39 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if the scopes
+# attribute for the google_container_cluster resource is set to the allowed monitoring and logging
+# scopes. If a violation is found, the policy returns a message indicating that monitoring and
+# logging scopes are not enabled for the GKE cluster.
+
+# Note that this policy restricts enforcement to only the GKE cluster resources and it checks only
+# for the create action, as it is not necessary to check for updates or deletes since the scopes can't
+# be changed after the cluster is created.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GKE",
+      "priority": "Critical",
+      "customComplianceCacRef": "GCPPLAT-GKE-02",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure that Alpha clusters are not used for production workloads",
+      "policyName": "GCP-TFSENTINEL-GKE-160-001.sentinel",
+}
+
+# Get all GKE clusters
+allGKEClusters = plan.find_resources("google_container_cluster")
+
+# Filter to GKE clusters with enable_kubernetes_alpha set to true
+# Warnings will be printed for all violations since the last parameter is true
+GKEAlphaClusters = plan.filter_attribute_is_value(allGKEClusters,
+                    "enable_kubernetes_alpha", true, true)
+alpha_clusters = length(GKEAlphaClusters["messages"])
+
+
+# Main rule
+validated = alpha_clusters is 0
+
+main = rule {
+  validated
+}

@@ -1,0 +1,30 @@
+# This policy uses the tfplan/v2 import to get the Terraform plan data and checks if 
+# the GKE cluster node pool has node integrity monitoring enabled
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+metadata = {
+  "standard": "",
+  "control": "",
+}
+
+# get containr node pool resource
+nodePools = plan.find_resources("google_container_node_pool")
+
+# check if any node pool does not have integrity monitoring enabled
+notIntegrityMonitored = filter nodePools as _, resource_changes {
+  resource_changes.change.after.node_config[0].shielded_instance_config[0].enable_integrity_monitoring == false
+}
+
+# Main rule, check only if a GKE cluster is created
+if nodePools is not empty {
+   validated = notIntegrityMonitored is empty
+} else {
+  validated = true
+}
+
+main = rule {
+  validated
+}

@@ -1,0 +1,29 @@
+import "tfplan-functions" as plan
+
+metadata = {
+      "version": "1.0.0",
+      "category": "GDF",
+      "priority": "High",
+      "customComplianceCacRef": "GCPPLAT-GDF-03",
+      "createdBy": "td-cac-team",
+      "policyDescription": "Ensure an approved region is specified when you run a GCP Dataflow pipeline",
+      "policyName": "GCP-TFSENTINEL-GDF-090-001.sentinel",
+}
+
+allowed_types = ["us-central1", "us-east4"]
+
+# Get all Dataflow jobs
+allDataflowjobs = plan.find_resources("google_dataflow_job")
+
+# Filter to GCE instances with violations
+# Warnings will be printed for all violations since the last parameter is true
+violatingDataflowjobs = plan.filter_attribute_not_in_list(allDataflowjobs,
+                        "region", allowed_types, true)
+
+# Count violations
+violations = length(violatingDataflowjobs["messages"])
+
+# Main rule
+main = rule {
+  violations is 0
+}
